@@ -1,0 +1,56 @@
+<div class="container">
+  <!-- Left Column: Map -->
+  <div class="map-column">
+    <div class="map-title">World Map Explorer</div>
+    <div class="map-container">
+      <div [innerHTML]="svgContent"></div>
+    </div>
+    <div class="map-instructions" *ngIf="!selectedCountry">
+      <p>👆 Click on a country to view its information</p>
+    </div>
+  </div>
+
+  <!-- Right Column: Country Information -->
+  <div class="info-column">
+    <div *ngIf="!selectedCountry" class="no-selection">
+      <p>Select a country from the map to view details</p>
+    </div>
+
+    <div *ngIf="isLoading" class="loading">
+      <p>Loading country information...</p>
+    </div>
+
+    <div *ngIf="selectedCountry && !isLoading" class="country-info">
+      <h2>{{ selectedCountry.name }}</h2>
+      
+      <div class="info-item">
+        <span class="label">Capital:</span>
+        <span class="value">{{ selectedCountry.capital }}</span>
+      </div>
+
+      <div class="info-item">
+        <span class="label">Region:</span>
+        <span class="value">{{ selectedCountry.region }}</span>
+      </div>
+
+      <div class="info-item">
+        <span class="label">Income Level:</span>
+        <span class="value">{{ selectedCountry.incomeLevel }}</span>
+      </div>
+
+      <div class="info-item">
+        <span class="label">Population:</span>
+        <span class="value">{{ selectedCountry.population | number }}</span>
+      </div>
+
+      <div class="info-item">
+        <span class="label">Currency:</span>
+        <span class="value">{{ selectedCountry.currency }}</span>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>

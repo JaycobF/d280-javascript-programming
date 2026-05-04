@@ -1,0 +1,19 @@
+.map-instructions {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f0f4ff;
+  border-left: 4px solid #4da6ff;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+
+  p {
+    margin: 0;
+  }
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
